@@ -35,7 +35,7 @@ useEffect(() =>{
           {item.subtitulo}
         </p>
          
-        <a className="botao">Acessar</a>
+        <a className="botao" href="#">Acessar</a>
 
         
       </article>

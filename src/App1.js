@@ -1,13 +1,18 @@
 
-import AppRoutes from  "./Route";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sobre from './pages/Sobre'
+import Home from './pages/Home';
 
-export default function App1(){
+
+function App1(){
     return(
-        <div>
-            <h1>Rotas com React JS</h1>
-           
-        </div>
-    );
+         <BrowserRouter>
+            <Routes>
+            <Route path='/' element={<Home />} />
+         <Route path='/Sobre' element={<Sobre />} />
+            </Routes>
+         </BrowserRouter>
+      );
 }
-
+export default App1;
 

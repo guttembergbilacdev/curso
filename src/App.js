@@ -1,46 +1,50 @@
 
-import { useEffect, useState } from "react";
+import react, {useEffect, useState} from "react";
 import './style.css';
 
+
 function App() {
-const [nutri, setNutri] = useState([]);
+  const [nutri, setNutri] = useState ([]);
 
-useEffect(() =>{
-  let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
+  useEffect(()=> {
+    
+    function loadApi (){
+      let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
 
-  function loadApi() {
-    fetch (url)
-    .then((r) => r.json())
-    .then((json) => {
-      console.log(json);
-      setNutri(json);
-    })
-  }
+      fetch(url)
+      .then((r)=> r.json())
+      .then((json)=>{
+       console.log(json);
+       setNutri(json);
+      })
+    }
 
-  loadApi();
-},[]);
+    loadApi();
+
+  }, []);
+
 
   return (
-    <div className="container">
-      <header>
-        <strong>React Nutri</strong>
-      </header>
-   
-    {nutri.map((item)=> {
-    return(
-      <article key={item.id} className="post">
-        <strong className="titulo">{item.titulo} </strong>
-        <img src={item.capa} alt="{item.titulo}" className="capa"/>
-        <p className="subtitulo">
-          {item.subtitulo}
-        </p>
-         
-        <a className="botao" href="#">Acessar</a>
+    <div className="container"> 
+          <header>
+            <strong>Reat Nutri</strong>
+          </header>
 
-        
-      </article>
-    )
-  })}
+          {nutri.map((item)=>{
+return (
+  <article key={item.id} className="post">
+    <strong className="titulo">{item.titulo}</strong>
+    
+      <img src={item.capa} alt="{item.titulo}" className="capa"/>
+        <p className="subtitulo">
+      {(item.subtitulo)}
+        </p>
+       
+        <a className="botao"> Acessar</a>
+
+  </article>
+)
+          })};
     </div>
   );
 }

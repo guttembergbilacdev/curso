@@ -1,18 +1,13 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Sobre from './pages/Sobre'
-import Home from './pages/Home';
+import Routes from "./Routes";
+import Header from "./Component/Header";
 
-
-function App1(){
-    return(
-         <BrowserRouter>
-            <Routes>
-            <Route path='/' element={<Home />} />
-         <Route path='/Sobre' element={<Sobre />} />
-            </Routes>
-         </BrowserRouter>
-      );
+//componente App1(a página que está exibida)
+export default function App1(){
+  return(
+    // O parentese abre JSX que será retornado
+       <div>
+        <Routes/>
+      </div>
+   );
 }
-export default App1;
-
